@@ -15,7 +15,7 @@
 
 %start CALC
 
-%token QUIT FLOAT NL ANS
+%token QUIT FLOAT INT NL ANS EXPKEY
 
 %left '-' '+'
 %left '*' '/' '%'
@@ -77,9 +77,25 @@ NUMBER : '+' NUM {$$ = $2;}
 	| NUM {$$ = $1;}
 ;
 
-NUM : FLOAT 'e' FLOAT {$$ = $1 * pow(10, $3);}
-	| FLOAT 'E' FLOAT {$$ = $1 * pow(10, $3);}
-	| FLOAT {$$ = $1;}
+NUM : FLOAT EXPKEY FLOAT {
+		double expVal = $3;
+		if (expVal == (int)expVal)
+			$$ = $1 * pow(10, expVal);
+		else
+			err("Floating point exponent not supported in scientific notation\n");
+	} | FLOAT EXPKEY '+' FLOAT {
+		double expVal = $4;
+		if (expVal == (int)expVal)
+			$$ = $1 * pow(10, expVal);
+		else
+			err("Floating point exponent not supported in scientific notation\n");
+	} | FLOAT EXPKEY '-' FLOAT {
+		double expVal = -$4;
+		if (expVal == (int)expVal)
+			$$ = $1 * pow(10, expVal);
+		else
+			err("Floating point exponent not supported in scientific notation\n");
+	} | FLOAT {$$ = $1;}
 ;
 %%
 

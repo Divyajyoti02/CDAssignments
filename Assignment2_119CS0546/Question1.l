@@ -7,16 +7,24 @@
 	extern YYSTYPE yylval;
 %}
 
+FLOAT [0-9]*([0-9]\.|\.[0-9])[0-9]*
+INT [0-9]*
+
 %%
 (?i:"quit") {return QUIT;}
 (?i:"ans") {return ANS;}
-[0-9]*\.[0-9]*|[0-9]* {
+{FLOAT} {
+	yylval = atof(yytext);
+	return FLOAT;
+}
+{INT} {
 	yylval = atof(yytext);
 	return FLOAT;
 }
 [ \t]
 [\n] {return NL;}
-[e\+\-\*\/\%\^\[\]\{\}\(\)] {return yytext[0];}
+(?i:"e") {return EXPKEY;}
+[A-Za-z_\+\-\*\/\%\^\[\]\{\}\(\)] {return yytext[0];}
 . {fprintf(stderr, "Unexpected token: %c\n", yytext[0]);}
 %%
 
