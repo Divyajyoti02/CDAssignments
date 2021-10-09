@@ -38,7 +38,7 @@
 # define YY_YY_Y_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
-# define YYDEBUG 0
+# define YYDEBUG 1
 #endif
 #if YYDEBUG
 extern int yydebug;
@@ -49,25 +49,37 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-    QUIT = 258,
+    VAR = 258,
     FLOAT = 259,
     INT = 260,
-    NL = 261,
-    ANS = 262,
-    EXPKEY = 263
+    ANS = 261,
+    SET = 262,
+    QUIT = 263,
+    NL = 264
   };
 #endif
 /* Tokens.  */
-#define QUIT 258
+#define VAR 258
 #define FLOAT 259
 #define INT 260
-#define NL 261
-#define ANS 262
-#define EXPKEY 263
+#define ANS 261
+#define SET 262
+#define QUIT 263
+#define NL 264
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+union YYSTYPE
+{
+#line 15 "Question1.y"
+
+	double doubleVal;
+	char * strVal;
+
+#line 80 "y.tab.h"
+
+};
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif
