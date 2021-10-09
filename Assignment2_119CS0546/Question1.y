@@ -21,7 +21,7 @@
 
 %token<strVal> VAR
 %token<doubleVal> FLOAT INT ANS
-%token SET QUIT NL
+%token SET QUIT NL END_OF_FILE
 
 %type<doubleVal> EXPR TERM EXPFAC FACTOR NUMBER NUM
 
@@ -79,8 +79,7 @@ TERM : TERM '*' EXPFAC {$$ = $1 * $3;}
 			err("Division by 0 not allowed.\n");
 		} else
 			$$ = $1 / $3;
-	}
-	| TERM '%' EXPFAC {
+	} | TERM '%' EXPFAC {
 		double x1 = $1, x2 = $3;
 		if (x1 == (int)x1 && x2 == (int)x2)
 			$$ = (int)x1 % (int)x2;
@@ -88,8 +87,7 @@ TERM : TERM '*' EXPFAC {$$ = $1 * $3;}
 			$$ = NAN;
 			err("Floating point modulo not supported\n");
 		}
-	}
-	| EXPFAC {$$ = $1;}
+	} | EXPFAC {$$ = $1;}
 ;
 
 EXPFAC : EXPFAC '^' FACTOR {$$ = pow($1, $3);}

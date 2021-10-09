@@ -55,7 +55,8 @@ extern int yydebug;
     ANS = 261,
     SET = 262,
     QUIT = 263,
-    NL = 264
+    NL = 264,
+    END_OF_FILE = 265
   };
 #endif
 /* Tokens.  */
@@ -66,6 +67,7 @@ extern int yydebug;
 #define SET 262
 #define QUIT 263
 #define NL 264
+#define END_OF_FILE 265
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
@@ -76,7 +78,7 @@ union YYSTYPE
 	double doubleVal;
 	char * strVal;
 
-#line 80 "y.tab.h"
+#line 82 "y.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

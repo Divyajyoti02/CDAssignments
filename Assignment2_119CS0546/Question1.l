@@ -6,6 +6,8 @@
 	extern YYSTYPE yylval;
 %}
 
+%x end
+
 FLOAT [0-9]*([0-9]\.|\.[0-9])[0-9]*
 INT [0-9]*
 VAR [A-Za-z0-9_]*
@@ -29,6 +31,11 @@ VAR [A-Za-z0-9_]*
 [ \t]
 [\n] {return NL;}
 [\+\-\*\/\%\^\[\]\{\}\(\)] {return yytext[0];}
+<INITIAL><<EOF>> {
+	fprintf(stderr, "\nQuit expected.\n");
+	BEGIN end;
+}
+<end><<EOF>> {return 0;}
 . {fprintf(stderr, "Unexpected token: %c\n", yytext[0]);}
 %%
 
