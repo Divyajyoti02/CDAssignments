@@ -53,10 +53,46 @@ extern int yydebug;
     FLOAT = 259,
     INT = 260,
     ANS = 261,
-    SET = 262,
-    QUIT = 263,
-    NL = 264,
-    END_OF_FILE = 265
+    SQR = 262,
+    CUBE = 263,
+    SQRT = 264,
+    CBRT = 265,
+    LOG10 = 266,
+    LN = 267,
+    INV = 268,
+    ABS = 269,
+    EXP = 270,
+    LOG = 271,
+    SIN = 272,
+    COS = 273,
+    TAN = 274,
+    SEC = 275,
+    CSC = 276,
+    COT = 277,
+    ASIN = 278,
+    ACOS = 279,
+    ATAN = 280,
+    ASEC = 281,
+    ACSC = 282,
+    ACOT = 283,
+    SINH = 284,
+    COSH = 285,
+    TANH = 286,
+    SECH = 287,
+    CSCH = 288,
+    COTH = 289,
+    ASINH = 290,
+    ACOSH = 291,
+    ATANH = 292,
+    ASECH = 293,
+    ACSCH = 294,
+    ACOTH = 295,
+    FLOOR = 296,
+    CEIL = 297,
+    FRAC = 298,
+    SET = 299,
+    QUIT = 300,
+    NL = 301
   };
 #endif
 /* Tokens.  */
@@ -64,10 +100,46 @@ extern int yydebug;
 #define FLOAT 259
 #define INT 260
 #define ANS 261
-#define SET 262
-#define QUIT 263
-#define NL 264
-#define END_OF_FILE 265
+#define SQR 262
+#define CUBE 263
+#define SQRT 264
+#define CBRT 265
+#define LOG10 266
+#define LN 267
+#define INV 268
+#define ABS 269
+#define EXP 270
+#define LOG 271
+#define SIN 272
+#define COS 273
+#define TAN 274
+#define SEC 275
+#define CSC 276
+#define COT 277
+#define ASIN 278
+#define ACOS 279
+#define ATAN 280
+#define ASEC 281
+#define ACSC 282
+#define ACOT 283
+#define SINH 284
+#define COSH 285
+#define TANH 286
+#define SECH 287
+#define CSCH 288
+#define COTH 289
+#define ASINH 290
+#define ACOSH 291
+#define ATANH 292
+#define ASECH 293
+#define ACSCH 294
+#define ACOTH 295
+#define FLOOR 296
+#define CEIL 297
+#define FRAC 298
+#define SET 299
+#define QUIT 300
+#define NL 301
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
@@ -78,7 +150,7 @@ union YYSTYPE
 	double doubleVal;
 	char * strVal;
 
-#line 82 "y.tab.h"
+#line 154 "y.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
