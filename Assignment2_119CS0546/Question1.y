@@ -6,6 +6,7 @@
 	#define YYSTYPE double
 	
 	_Bool errFlag = 0;
+	double ans = NAN;
 	
 	int yylex(void);
 	void yyerror(const char *s);
@@ -14,7 +15,7 @@
 
 %start CALC
 
-%token QUIT FLOAT INT NL
+%token QUIT FLOAT NL ANS
 
 %left '-' '+'
 %left '*' '/' '%'
@@ -33,8 +34,10 @@ CALC : S
 S : EXPR NL{
 		if (errFlag)
 			errFlag = 0;
-		else
+		else {
 			printf("Result=%lf\n", $1);
+			ans = $1;
+		}
 	}
 	| NL
 ;
@@ -42,6 +45,7 @@ S : EXPR NL{
 EXPR : EXPR '+' TERM {$$ = $1 + $3;}
 	| EXPR '-' TERM {$$ = $1 - $3;}
 	| TERM {$$ = $1;}
+	| ANS {$$ = ans;}
 	| QUIT {return 0;}
 	| error {err("Entered arithmetic expression is Invalid\n");}
 ;

@@ -51,15 +51,15 @@ extern int yydebug;
   {
     QUIT = 258,
     FLOAT = 259,
-    INT = 260,
-    NL = 261
+    NL = 260,
+    ANS = 261
   };
 #endif
 /* Tokens.  */
 #define QUIT 258
 #define FLOAT 259
-#define INT 260
-#define NL 261
+#define NL 260
+#define ANS 261
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED

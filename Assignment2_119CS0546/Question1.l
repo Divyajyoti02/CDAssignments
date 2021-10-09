@@ -9,6 +9,7 @@
 
 %%
 (?i:"quit") {return QUIT;}
+(?i:"ans") {return ANS;}
 [0-9]*\.[0-9]*|[0-9]* {
 	yylval = atof(yytext);
 	return FLOAT;
