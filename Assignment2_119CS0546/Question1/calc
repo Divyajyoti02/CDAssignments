@@ -1,0 +1,8 @@
+gcc lex.yy.c y.tab.c symtable.c -lm -o main.out
+if [ -z "$1" ]
+then
+	./main.out
+else
+	./main.out < "$1"
+fi
+rm -f main.out
