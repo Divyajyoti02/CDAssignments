@@ -2,6 +2,7 @@ Design a simple calculator. This must be done with lex and yacc.
 
 
 Submitted by: Divyajyoti Panda (Roll No: 119CS0546)
+
 ===============================================================================
 ===============================================================================
 Functions supported:
@@ -15,6 +16,7 @@ ASIN ACOS ATAN ASEC ACSC ACOT SINH COSH TANH SECH CSCH COTH ASINH ACOSH ATANH
 ASECH ACSCH ACOTH FLOOR CEIL FRAC
 
 Can view previous answers, plus variable storage over double values
+
 ===============================================================================
 ===============================================================================
 Execution:
