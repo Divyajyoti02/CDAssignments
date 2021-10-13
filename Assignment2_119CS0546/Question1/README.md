@@ -26,5 +26,5 @@ Execute these two commands:
 
 make
 
-./calc or ./calc <filename>
+./calc or ./calc < filename >
 
