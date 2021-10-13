@@ -4,8 +4,9 @@ Design a simple calculator. This must be done with lex and yacc.
 Submitted by: Divyajyoti Panda (Roll No: 119CS0546)
 
 ===============================================================================
-===============================================================================
+
 Functions supported:
+
 Interpreting ints, floats and scientific numbers
 
 Arithmetic operations: addition (+), subtraction (-), multiplication (*), 
@@ -18,9 +19,12 @@ ASECH ACSCH ACOTH FLOOR CEIL FRAC
 Can view previous answers, plus variable storage over double values
 
 ===============================================================================
-===============================================================================
+
 Execution:
+
 Execute these two commands:
+
 make
+
 ./calc or ./calc <filename>
 
